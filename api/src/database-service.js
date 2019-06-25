@@ -13,7 +13,6 @@ export default class databaseService {
             "password": password,
             "database": databaseSchema
         });
-
     return database
     }
 }
