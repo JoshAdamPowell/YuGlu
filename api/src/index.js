@@ -1,36 +1,37 @@
 import express from 'express';
+import cors from 'cors';
 import HelloWorld from './controllers/helloWorld-controller';
 import signUpController from './controllers/sign-up-controller'
+import bodyParser from 'body-parser';
+
 
 class App {
-
-    
-
-init(){
+  init() {
     // SETUP EXPRESS
     const app = express();
     app.use(express.urlencoded());
+    app.use(cors({
+      origin: '*'
+    }))
+    app.use(bodyParser());
+    //app.options(cors())
     app.set('port', 3001);
-console.log('blah')
-console.log(app.get('port'));
-var server = app.listen(app.get('port'), function() {
-  console.log('Express server listening on port ' + server.address().port);
-});
-    const port = 3001;
-
+    app.use(function (req, res, next) {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      next();
+    });
     const port = 3001;
 
     HelloWorld.register(app);
     signUpController.register(app);
 
-
-
-    if (!this.setup){
-    app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+    if (!this.setup) {
+      app.listen(port, () => console.log(`Example app listening on port ${port}!`));
     }
     this.setup = true;
-}
-    
+  }
+
 }
 
 

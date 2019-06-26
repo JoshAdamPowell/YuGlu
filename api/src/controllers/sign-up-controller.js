@@ -12,29 +12,18 @@ export default class setUpThisController{
                 res.render('signup', model);
             // });
         });
-    
         app.post('/signup', function(req, res) {
-            // TODO: signup code
-    
+            // TODO: signup code  
             let newUserName = req.body.userName
             let newPassword = req.body.password
             let newFirstName = req.body.firstName
             let newLastName = req.body.lastName
             let newEmail = req.body.email
-    
+            console.log('this is the req', req.body)
             usersService.signUpUser(newUserName,newPassword,newFirstName,newLastName,newEmail, function(){
-    
                 res.redirect('/');
             });
-
-
         });
-
-
-
-
-
-
     }
 }
 
