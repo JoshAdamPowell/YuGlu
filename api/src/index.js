@@ -1,8 +1,9 @@
 import express from 'express';
 import cors from 'cors';
+import bodyParser from 'body-parser';
 import HelloWorld from './controllers/helloWorld-controller';
 import signUpController from './controllers/sign-up-controller'
-import bodyParser from 'body-parser';
+
 
 
 class App {
@@ -14,7 +15,6 @@ class App {
       origin: '*'
     }))
     app.use(bodyParser());
-    //app.options(cors())
     app.set('port', 3001);
     app.use(function (req, res, next) {
       res.header("Access-Control-Allow-Origin", "*");

@@ -15,7 +15,6 @@ export default class SignUpPage extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log(this.state)
     fetch("http://localhost:3001/signup", {
         method: 'POST',
         cache: 'no-cache', 

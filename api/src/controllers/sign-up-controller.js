@@ -13,7 +13,6 @@ export default class setUpThisController{
             // });
         });
         app.post('/signup', function(req, res) {
-            // TODO: signup code  
             let newUserName = req.body.userName
             let newPassword = req.body.password
             let newFirstName = req.body.firstName
