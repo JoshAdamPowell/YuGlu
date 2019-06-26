@@ -6,7 +6,7 @@ init(){
     // SETUP EXPRESS
     const app = express();
     app.use(express.urlencoded());
-    app.set('port', 3001);
+    app.set('port',process.env.PORT || 3001);
 console.log('blah')
 console.log(app.get('port'));
 var server = app.listen(app.get('port'), function() {
