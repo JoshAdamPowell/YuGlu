@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../img/YuGluLogo.PNG'
+import Logo from './img/YuGluLogo.PNG'
 
 export default class YuGluMast extends React.Component {
     constructor(props) {
