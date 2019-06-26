@@ -1,6 +1,4 @@
 import React from 'react';
-
-
 export default class SignUpPage extends React.Component {
     constructor(props) {
         super(props);
@@ -8,16 +6,13 @@ export default class SignUpPage extends React.Component {
     }
 
     handleInputChange(event) {
-        const target = event.target;
-        const name = target.name;
-        console.log('this is a log', event.target.value);
+        const name = event.target.name;
         this.setState({
             [name]: event.target.value
         });
     }
 
     handleSubmit(event) {
-        console.log('A name was submitted: ' + JSON.stringify(this.state));
         event.preventDefault();
     }
 
