@@ -6,7 +6,8 @@ export default class SignUpPage extends React.Component {
     }
 
     handleInputChange(event) {
-        const name = event.target.name;
+        const target = event.target;
+        const name = target.name;
         this.setState({
             [name]: event.target.value
         });
@@ -14,15 +15,26 @@ export default class SignUpPage extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
+    fetch("http://localhost:3001/signup", {
+        method: 'POST',
+        cache: 'no-cache', 
+        credentials: 'same-origin', 
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        redirect: 'follow', 
+        referrer: 'no-referrer', 
+        body: JSON.stringify(this.state), 
+    })
+    .then(response => response.json()); 
     }
-
     render() {
         return (
             <form onSubmit={(e) => this.handleSubmit(e)}>
                 <label>
                     Username:
                     <input
-                        name="username"
+                        name="userName"
                         type="text"
                         value={this.state.userName}
                         onChange={(e) => this.handleInputChange(e)} />
@@ -40,7 +52,7 @@ export default class SignUpPage extends React.Component {
                 <label>
                     First Name:
                     <input
-                        name="firstname"
+                        name="firstName"
                         type="text"
                         value={this.state.firstName}
                         onChange={(e) => this.handleInputChange(e)} />
@@ -49,7 +61,7 @@ export default class SignUpPage extends React.Component {
                 <label>
                     Last Name:
                     <input
-                        name="lastname"
+                        name="lastName"
                         type="text"
                         value={this.state.lastName}
                         onChange={(e) => this.handleInputChange(e)} />
