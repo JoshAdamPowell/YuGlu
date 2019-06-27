@@ -1,11 +1,14 @@
 import express from 'express';
 import HelloWorld from './helloWorld-controller';
+import cors from 'cors';
+
 class App {
 
 init(){
     // SETUP EXPRESS
     const app = express();
     app.use(express.urlencoded());
+    app.use(cors());
     app.set('port',process.env.PORT || 3001);
 console.log('blah')
 console.log(app.get('port'));
