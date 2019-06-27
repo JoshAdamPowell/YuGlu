@@ -1,22 +1,19 @@
 import express from 'express';
-import HelloWorld from './helloWorld-controller';
+
 class App {
 
-init(){
-    // SETUP EXPRESS
-    const app = express();
-    app.use(express.urlencoded());
+    init(){
+        const APP = express();
+        const PORT = 3001;
 
-    const port = 3001;
+        APP.use(express.urlencoded());
 
-    HelloWorld.register(app);
+        APP.listen(PORT, () => console.log(`YuGlu API listening on: https://localhost:${PORT}`));
 
-
-
-
-    app.listen(port, () => console.log(`Example app listening on port ${port}!`));
-
-}
+        APP.get('/api/home', (req, res) => {
+            res.send('Welcome to the homepage!')
+        })
+    }
     
 }
 
