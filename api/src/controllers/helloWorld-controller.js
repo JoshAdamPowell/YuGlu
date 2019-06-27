@@ -1,4 +1,4 @@
-import db from './database-service';
+import db from '../services/database-service';
 
 export default class HelloWorld {
 
