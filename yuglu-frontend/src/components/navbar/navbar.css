@@ -7,35 +7,25 @@
   
 }
 
-.Nav_Link {
-
-    text-align: center;
-    display: flex;
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
- 
-}
-
 .Nav_item_wrapper {
     list-style: none;
     text-decoration: none;
-    float: left;
+    float: center;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 100%;
-    margin: 0;
-    padding: 0;
 
-    
 }
 
-
-.Nav_item {
+li {
+    text-align:end;
+    float: left;
+    font-size: 1.5em;
+    font-family: sans-serif;
     list-style: none;
     display: flex;
     text-decoration: none;
-  
- 
+    font-weight: bold;
 }
+
