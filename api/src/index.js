@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import HelloWorld from './controllers/helloWorld-controller';
 import signUpController from './controllers/sign-up-controller';
+import loginController from './controllers/login-controller';
 
 class App {
   
@@ -14,7 +14,7 @@ class App {
     APP.use(cors({ origin: '*' }))
     APP.use(bodyParser());
     
-    HelloWorld.register(APP);
+    loginController.register(APP);
     signUpController.register(APP);
 
     APP.listen(PORT, () => console.log(`YuGlu API listening on port ${PORT}!`));

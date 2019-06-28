@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 
 export default class userService {
 
-    static signUpUser(userName, password, firstName, lastName, email) {
+    signUpUser(userName, password, firstName, lastName, email) {
         const db = new databaseService()
         const connection = db.init()
         var saltRounds = 10;
@@ -17,7 +17,33 @@ export default class userService {
                 callback();
             });
         })
+
     }
+
+
+    loginUser(username, password, successCallback, failureCallback) {
+        const db = new databaseService();
+        const connection = db.init();
+
+        const query = 'SELECT * FROM Yuglu.Users WHERE userName = ?';
+        const parameters = [username];
+
+        connection.query(query, parameters, function (error, results, fields) {
+            if (error) throw error;
+            let hash = results[0].password;
+
+            bcrypt.compare(password, hash, function (err, res) {
+                if (results.length > 0 && username === results[0].userName && res === true) {
+                    successCallback();
+                } else {
+                    console.log('Auth service failed.');
+                    failureCallback();
+                }
+            })
+        
+        })
+    }
+
 }
 
 
