@@ -1,0 +1,41 @@
+.navbar {
+    background-color: pink;
+    margin-top: 0;
+    overflow: hidden;
+    list-style: none;
+    height: 60px;
+  
+}
+
+.Nav_Link {
+
+    text-align: center;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+ 
+}
+
+.Nav_item_wrapper {
+    list-style: none;
+    text-decoration: none;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    
+}
+
+
+.Nav_item {
+    list-style: none;
+    display: flex;
+    text-decoration: none;
+  
+ 
+}
