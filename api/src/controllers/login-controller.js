@@ -8,8 +8,7 @@ export default class loginController {
             const { username, password } = req.body;
 
             usersService.loginUser(username, password, function () {
-                res.redirect('/home')
-                console.log('Success!')
+                res.redirect('/')
             }), function() {
                 res.send(401);
             };
