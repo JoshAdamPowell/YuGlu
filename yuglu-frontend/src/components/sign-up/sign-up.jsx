@@ -19,9 +19,7 @@ export default class SignUpPage extends React.Component {
         method: 'POST',
         cache: 'no-cache', 
         credentials: 'same-origin', 
-        headers: {
-            'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         redirect: 'follow', 
         referrer: 'no-referrer', 
         body: JSON.stringify(this.state), 
