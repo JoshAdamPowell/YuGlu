@@ -1,40 +1,29 @@
 import express from 'express';
 import cors from 'cors';
-import HelloWorld from './controllers/helloWorld-controller';
-import signUpController from './controllers/sign-up-controller'
 import bodyParser from 'body-parser';
+import signUpController from './controllers/sign-up-controller';
+import loginController from './controllers/login-controller';
 
+import cors from 'cors';
 
 class App {
+  
   init() {
-    // SETUP EXPRESS
-    const app = express();
-    app.use(express.urlencoded());
-    app.use(cors({
-      origin: '*'
-    }))
-    app.use(bodyParser());
-    //app.options(cors())
-    app.set('port', 3001);
-    app.use(function (req, res, next) {
-      res.header("Access-Control-Allow-Origin", "*");
-      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-      next();
-    });
-    const port = 3001;
+    const APP = express();
+    const PORT = 3001;
 
-    HelloWorld.register(app);
-    signUpController.register(app);
+    APP.use(express.urlencoded());
+    APP.use(cors({ origin: '*' }))
+    APP.use(bodyParser());
+    
+    loginController.register(APP);
+    signUpController.register(APP);
 
-    if (!this.setup) {
-      app.listen(port, () => console.log(`Example app listening on port ${port}!`));
-    }
-    this.setup = true;
+    APP.listen(PORT, () => console.log(`YuGlu API listening on port ${PORT}!`));
+    
   }
 
 }
-
-
 
 const application = new App()
 application.init();
