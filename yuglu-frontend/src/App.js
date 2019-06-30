@@ -3,7 +3,7 @@ import SignUp from './components/sign-up/sign-up';
 import Login from './components/Login/Login';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Home from './components/home/Home'
+import Home from './components/Home/Home'
 import Dashboard from './components/dashboard/Dashboard'
 import AddPost from './components/addpost/AddPost'
 import NavBar from './components/navbar/NavBar' 
