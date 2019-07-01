@@ -27,13 +27,14 @@ export default class LoginForm extends React.Component {
             body: JSON.stringify(this.state)
         })
         .then(res => res.json());
+     
     }
 
     render() {
         return (
             
             <div>
-                <div class="login-container">
+                <div className="login-container">
                     <div className="login-form">
                         <h1>Log in</h1>
                             <form onSubmit = {() => this.handleSubmit()}>
