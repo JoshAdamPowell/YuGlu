@@ -3,8 +3,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import signUpController from './controllers/sign-up-controller';
 import loginController from './controllers/login-controller';
-
-import cors from 'cors';
+import dashboardController from './controllers/dashboard-controller';
 
 class App {
   
@@ -18,6 +17,8 @@ class App {
     
     loginController.register(APP);
     signUpController.register(APP);
+    dashboardController.register(APP);
+
 
     APP.listen(PORT, () => console.log(`YuGlu API listening on port ${PORT}!`));
     
