@@ -27,7 +27,6 @@ export default class LoginForm extends React.Component {
             body: JSON.stringify(this.state)
         })
         .then(res => res.json());
-     
     }
 
     render() {
