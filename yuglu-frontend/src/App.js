@@ -4,15 +4,9 @@ import Login from './components/Login/Login';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from './components/Home/Home'
-<<<<<<< HEAD
-import Dashboard from './components/dashboard/Dashboard'
-import AddPost from './components/addpost/AddPost'
-import NavBar from './components/navbar/NavBar' 
-=======
 import Dashboard from './components/Dashboard/Dashboard'
 import AddPost from './components/AddPost/AddPost'
 import NavBar from './components/Navbar/NavBar' 
->>>>>>> master
 
 function App() {
   console.log(process.env.PORT)
