@@ -13,7 +13,7 @@ export default class NavBar extends React.Component {
             <div className="navbar">
                 <div className="nav-icon">
                     <Link to="/" className="home"></Link>                 
-                <div className="Nav-list">
+                <div>
                     <ul className="Nav_item_wrapper">
                       <li>
                         <Link className="Nav__link" to="/signup">Sign Up</Link>
