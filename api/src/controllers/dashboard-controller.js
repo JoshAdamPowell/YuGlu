@@ -6,8 +6,6 @@ export default class dashboardController {
 
         app.get('/dashboard/:userId', function (req, res) {
             const  userId  = req.params['userId'];
-console.log('a')
-console.log(userId, req.params);
             dashboardService.getUserPosts(userId, function (results) {
                 console.log('results is ', results);
                 if(results.length===0){
