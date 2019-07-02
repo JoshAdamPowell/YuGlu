@@ -17,7 +17,13 @@
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05)
 }
 
-
+form {
+    padding: 80px;
+    background-color: beige;
+    justify-content: center;
+    margin-right:80%;
+    margin-left: 80%;
+}
 
 .namebox {
     margin: 20px;
@@ -35,7 +41,9 @@
 }
 
 label {
-    font-size: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: grey;
 }
 
 form {
@@ -48,5 +56,45 @@ form {
 ::placeholder {
     font-size: 15px;
     font-weight: bold;
+    text-align: center;
 
+}
+
+.deadline {
+    margin: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    color: grey;
+}
+
+.deadlinebox {
+    width: 30%;
+    height: 20px;
+    margin: 20px;
+    border-radius: 4px;
+    position: relative;
+    background-color: lightpink;
+    transition: 0.3s all;
+}
+
+.deadlinebox:hover {
+    background-color: whitesmoke;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05)
+}
+
+
+.button {
+    margin-left: auto;
+    margin-top: 30px;
+    padding: 12px 20px;
+    border: none;
+    background: darkgray;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    border-radius: 2px;
+  }
+  
+.inputfield {
+    
 }

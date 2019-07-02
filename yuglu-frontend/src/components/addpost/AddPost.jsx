@@ -1,6 +1,7 @@
 import React from 'react';
 import css from './addpost.css'
 
+
 export default class AddPost extends React.Component {
     constructor(props) {
         super(props);
@@ -17,7 +18,7 @@ export default class AddPost extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-    fetch("http://localhost:3001/signup", {
+    fetch("http://localhost:3001/addnew", {
         method: 'POST',
         cache: 'no-cache', 
         credentials: 'same-origin', 
@@ -32,6 +33,7 @@ export default class AddPost extends React.Component {
     render() {
         return (
             <form onSubmit={(e) => this.handleSubmit(e)}>
+                <div className="inputfield">
                 <label>
                     <input
                         name="title"
@@ -52,7 +54,7 @@ export default class AddPost extends React.Component {
                         onChange={(e) => this.handleInputChange(e)} />
                 </label>
                 <br />
-                <label>
+                <label className="deadline">
                     Deadline:
                     <input
                         name="deadline"
@@ -62,18 +64,22 @@ export default class AddPost extends React.Component {
                         onChange={(e) => this.handleInputChange(e)} />
                 </label>
                 <br />
-                <label>
-                    Completed:
-                    <select
+                <label className="completed">
+                    <select defaultValue= "Incomplete"
                         name="completed"
-                        type="text"
+                        type="text" 
                         value={this.state.completed}
-                        onChange={(e) => this.handleInputChange(e)} />
+                        onChange={(e) => this.handleInputChange(e)}>
+
+                        </select>
+
                 </label>
                 <br />
                 <input
+                    className="button"
                     type="submit"
                     value="Submit"/>
+            </div>                              
             </form>
         );
     }
