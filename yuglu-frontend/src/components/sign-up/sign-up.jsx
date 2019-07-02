@@ -6,6 +6,9 @@ export default class SignUpPage extends React.Component {
     }
 
     handleInputChange(event) {
+        // if(event.length < 1) {
+        //     return ("Please enter details in the required fields")
+        // } else {
         const target = event.target;
         const name = target.name;
         this.setState({
@@ -33,7 +36,8 @@ export default class SignUpPage extends React.Component {
                     Username:
                     <input
                         name="userName"
-                        type="text"
+                        type="text" 
+                        // required="true"
                         value={this.state.userName}
                         onChange={(e) => this.handleInputChange(e)} />
                 </label>
@@ -43,6 +47,7 @@ export default class SignUpPage extends React.Component {
                     <input
                         name="password"
                         type="password"
+                        // required="true"
                         value={this.state.password}
                         onChange={(e) => this.handleInputChange(e)} />
                 </label>
@@ -52,6 +57,7 @@ export default class SignUpPage extends React.Component {
                     <input
                         name="firstName"
                         type="text"
+                        // required="true"
                         value={this.state.firstName}
                         onChange={(e) => this.handleInputChange(e)} />
                 </label>
@@ -59,8 +65,9 @@ export default class SignUpPage extends React.Component {
                 <label>
                     Last Name:
                     <input
-                        name="lastName"
-                        type="text"
+                        name="lastName"juk
+                        // type="text"
+                        // required= "true"
                         value={this.state.lastName}
                         onChange={(e) => this.handleInputChange(e)} />
                 </label>
@@ -70,6 +77,7 @@ export default class SignUpPage extends React.Component {
                     <input
                         name="email"
                         type="text"
+                        // required="true"
                         value={this.state.email}
                         onChange={(e) => this.handleInputChange(e)} />
                 </label>

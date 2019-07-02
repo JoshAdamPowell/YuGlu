@@ -1,5 +1,6 @@
 import React from 'react';
 import SignUp from './components/sign-up/sign-up';
+import Navbar from '../src/navbar'
 import Login from './components/Login/Login';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
