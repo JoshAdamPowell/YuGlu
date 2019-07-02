@@ -4,8 +4,6 @@ import bodyParser from 'body-parser';
 import signUpController from './controllers/sign-up-controller';
 import loginController from './controllers/login-controller';
 
-import cors from 'cors';
-
 class App {
   
   init() {

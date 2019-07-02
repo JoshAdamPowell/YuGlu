@@ -2,11 +2,23 @@
     width: 300px;
 }
 
+.submit-btn {
+    margin: auto;
+    display: flex;
+    padding: 5px 20px 5px 20px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 2.5px;
+}
+
 .login-container {
     display: flex;
     justify-content: center;
     min-height: 100%;
     transform: translate(0, 50%);
+}
+.login-form h1 {
+    text-align: center;
 }
 
 .login-form input {
@@ -21,4 +33,18 @@
     border-radius: 10px;
     padding: 50px 50px 100px 50px;
     background-color: #d8d8d8;
+}
+
+.error-msg {
+    color: #ff0000;
+    font-weight: 500;
+}
+
+.error-msg-container {
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+    visibility: hidden;
+    padding: 5px 5px 5px 5px;
+    background-color: #ffa0a0;
 }

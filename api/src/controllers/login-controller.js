@@ -5,14 +5,15 @@ export default class loginController {
     static register(app) {
 
         app.post('/login', function (req, res) {
-            const { username, password } = req.body;
+            const username = req.body.username;
+            const password = req.body.password;
 
             usersService.loginUser(username, password, function () {
-                res.redirect('/home')
+                res.status(200).send({success: res.satusCode});
                 console.log('Success!')
-            }), function() {
-                res.send(401);
-            };
+            }, function () {
+                res.status(400).send({error: res.statusCode});
+            });
         });
     }
 }

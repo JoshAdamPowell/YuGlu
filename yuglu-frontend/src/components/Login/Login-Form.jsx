@@ -1,12 +1,14 @@
 import React from 'react';
 import './css/Login-Form.css';
+import { Redirect, Link } from 'react-router-dom';
 
 export default class LoginForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            error: ''
         };
     }
 
@@ -14,29 +16,42 @@ export default class LoginForm extends React.Component {
         return this.state.username.length > 0 && this.state.password.length > 0;
     }
 
-    handleSubmit = event => {
-        event.preventDefault();
+    onSuccess(){
+        return <Redirect to="/login" />;
+    }
 
+    onError(){
+        this.setState({error: 'That username and password did not match.'});
+        document.getElementById('err-container').style.visibility = 'visible'
+    }
+
+    handleSubmit() {
         fetch("http://localhost:3001/login", {
             method: 'POST',
             cache: 'no-cache',
             credentials: 'same-origin',
             headers: { 'Content-Type': 'application/json' },
-            redirect: 'follow',
             referrer: 'no-referrer',
             body: JSON.stringify(this.state)
         })
-        .then(res => res.json());
+        .then(response => {
+            if (response.status === 200){
+                this.onSuccess();
+            }
+            if (response.status === 400){
+                this.onError();
+            }
+            return response.json()})
+        .then(body => console.log(body))
     }
 
     render() {
         return (
-            
             <div>
-                <div class="login-container">
+                <div className="login-container">
                     <div className="login-form">
                         <h1>Log in</h1>
-                            <form onSubmit = {() => this.handleSubmit()}>
+                            <div>
                                 <input 
                                     className="form-input" 
                                     name="username"
@@ -52,8 +67,12 @@ export default class LoginForm extends React.Component {
                                     value={this.state.password} 
                                     onChange={(e) => this.setState({password: e.target.value})} 
                                     placeholder="Password" />
-                            </form>
-                            <button disabled={!this.validateForm()} type="submit">Log in</button>
+                                    <br/>
+                                    <button className="submit-btn" disabled={!this.validateForm()} onClick={() => this.handleSubmit()} type="submit">Log in</button>
+                            </div>
+                            <div className="error-msg-container" id="err-container">
+                                <span className="error-msg">{this.state.error}</span>
+                            </div>
                     </div>
                 </div>
             </div>
