@@ -29,15 +29,20 @@ export default class userService {
         const parameters = [username];
 
         connection.query(query, parameters).then( (results, fields) => {
-            let hash = results[0][0].password;
+            if (results[0].length > 0) {
+                let hash = results[0][0].password;
 
-            bcrypt.compare(password, hash, function (err, res) {
-                if (results.length > 0 && username === results[0][0].userName && res === true) {
-                    successCallback();
-                } else {
-                    failureCallback();
-                }
-            })
+                bcrypt.compare(password, hash, function (err, res) {
+                    if (results.length > 0 && username === results[0][0].userName && res === true) {
+                        console.log(`User: 'ID: ${results[0][0].UserID} ${results[0][0].userName}' logged in at ${new Date()}`)
+                        successCallback();
+                    } else {
+                        failureCallback();
+                    }
+                })
+            } else {
+                failureCallback();
+            }
         
         }).catch((err) => {
             console.log(err);

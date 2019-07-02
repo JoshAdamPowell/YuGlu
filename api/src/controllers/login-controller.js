@@ -10,7 +10,6 @@ export default class loginController {
 
             usersService.loginUser(username, password, function () {
                 res.status(200).send({success: res.satusCode});
-                console.log('Success!')
             }, function () {
                 res.status(400).send({error: res.statusCode});
             });

@@ -37,6 +37,7 @@ export default class LoginForm extends React.Component {
         .then(response => {
             if (response.status === 200){
                 this.onSuccess();
+                window.location.href = 'http://localhost:3000/dashboard';
             }
             if (response.status === 400){
                 this.onError();
