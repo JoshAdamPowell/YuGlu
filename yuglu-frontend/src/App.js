@@ -5,9 +5,9 @@ import Login from './components/Login/Login';
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from './components/Home/Home'
-import Dashboard from './components/Dashboard/Dashboard'
-import AddPost from './components/AddPost/AddPost'
-import NavBar from './components/Navbar/NavBar' 
+import Dashboard from './components/dashboard/Dashboard';
+import AddPost from './components/Addpost/addPost';
+import NavBar from './components/navbar/NavBar';
 
 
 function App() {
