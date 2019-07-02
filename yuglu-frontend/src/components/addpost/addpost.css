@@ -1,0 +1,52 @@
+.textbox {
+    margin: 20px;
+    width: 40%;
+    height: 80px;
+    border-radius: 4px;
+    position: relative;
+    background-color: lightpink;
+    transition: 0.3s all; 
+}
+
+.textbox.locked {
+    pointer-events: none;
+}
+
+.textbox:hover {
+    background-color: whitesmoke;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05)
+}
+
+
+
+.namebox {
+    margin: 20px;
+    width: 40%;
+    height: 40px;
+    border-radius: 4px;
+    position: relative;
+    background-color: lightpink;
+    transition: 0.3s all; 
+}
+
+.namebox:hover {
+    background-color: whitesmoke;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05)
+}
+
+label {
+    font-size: 20px;
+}
+
+form {
+    text-align: center;
+    margin: 20px;
+
+}
+
+
+::placeholder {
+    font-size: 15px;
+    font-weight: bold;
+
+}
