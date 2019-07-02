@@ -17,8 +17,9 @@
     margin:10px;
 }
 .completedbutton:hover{
-    color: black;
+    color: white;
     background-color: #a2ffb0;
     border: 1px solid #00e623;
     transition: 0.5s;
 }
+

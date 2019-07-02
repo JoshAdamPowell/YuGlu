@@ -2,6 +2,7 @@ import React from 'react';
 import './css/dashboard.css';
 
 
+
 export default class Dashboard extends React.Component {
     constructor(props) {
         super(props);
@@ -32,10 +33,11 @@ export default class Dashboard extends React.Component {
                                 <div className="postTitle" id="title">Title : {post.title}</div>
                                 <div className="postDesc" id="description">Desc : {post.description}</div>
                                 <div className="deadline" id="deadline">Deadline : {post.deadline}</div>
-                                <button className="completedbutton" id="completed">Completed</button>
+                                <button className="completedbutton" id="completed">Completed{}</button>
 
 
                             </div>
+                            
                         })}
                     </div>
                 </div>
