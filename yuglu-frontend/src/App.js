@@ -10,7 +10,6 @@ import NavBar from './components/navbar/NavBar' ;
 
 
 function App() {
-  console.log(process.env.PORT)
   return (
     <Router>
       <NavBar></NavBar>

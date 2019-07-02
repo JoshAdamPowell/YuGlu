@@ -29,7 +29,7 @@ export default class NavBar extends React.Component {
                         <Link className="Nav__link" to="/addnew">Add a Post</Link>
                       </li>
                       <li>
-                        <Link className="Nav__link" to="/Login">Login</Link>
+                        <Link className="Nav__link" to="/login">Login</Link>
                       </li>
                     </ul>
                 </div>    
