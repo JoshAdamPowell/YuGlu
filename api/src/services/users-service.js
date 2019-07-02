@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 
 export default class userService {
 
-    signUpUser(userName, password, firstName, lastName, email) {
+    static signUpUser(userName, password, firstName, lastName, email) {
         const db = new databaseService()
         const connection = db.init()
         var saltRounds = 10;
@@ -21,26 +21,31 @@ export default class userService {
     }
 
 
-    loginUser(username, password, successCallback, failureCallback) {
+    static loginUser(username, password, successCallback, failureCallback) {
         const db = new databaseService();
         const connection = db.init();
 
         const query = 'SELECT * FROM Yuglu.Users WHERE userName = ?';
         const parameters = [username];
 
-        connection.query(query, parameters, function (error, results, fields) {
-            if (error) throw error;
-            let hash = results[0].password;
+        connection.query(query, parameters).then( (results, fields) => {
+            if (results[0].length > 0) {
+                let hash = results[0][0].password;
 
-            bcrypt.compare(password, hash, function (err, res) {
-                if (results.length > 0 && username === results[0].userName && res === true) {
-                    successCallback();
-                } else {
-                    console.log('Auth service failed.');
-                    failureCallback();
-                }
-            })
+                bcrypt.compare(password, hash, function (err, res) {
+                    if (results.length > 0 && username === results[0][0].userName && res === true) {
+                        console.log(`User: 'ID: ${results[0][0].UserID} ${results[0][0].userName}' logged in at ${new Date()}`)
+                        successCallback();
+                    } else {
+                        failureCallback();
+                    }
+                })
+            } else {
+                failureCallback();
+            }
         
+        }).catch((err) => {
+            console.log(err);
         })
     }
 
