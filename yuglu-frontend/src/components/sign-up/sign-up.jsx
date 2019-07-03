@@ -2,17 +2,14 @@ import React from 'react';
 export default class SignUpPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            name: ''
+        } ;
     }
 
-    handleInputChange(event) {
-        // if(event.length < 1) {
-        //     return ("Please enter details in the required fields")
-        // } else {
-        const target = event.target;
-        const name = target.name;
+    handleInputChange = (e) => {
         this.setState({
-            [name]: event.target.value
+            name: e.target.value
         });
     }
 
@@ -89,3 +86,5 @@ export default class SignUpPage extends React.Component {
         );
     }
 }
+
+

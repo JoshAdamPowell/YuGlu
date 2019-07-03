@@ -5,15 +5,17 @@ import css from './addpost.css'
 export default class AddPost extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            name: ''
+        }
     }
 
-    handleInputChange(event) {
-        const target = event.target;
-        const name = target.name;
+    handleInputChange = (e) => {
         this.setState({
-            [name]: event.target.value
+            name: e.target.value
+           
         });
+        console.log(this.state.name)
     }
 
     handleSubmit(event) {
@@ -65,14 +67,13 @@ export default class AddPost extends React.Component {
                 </label>
                 <br />
                 <label className="completed">
-                    <select defaultValue= "Incomplete"
+                    <select
                         name="completed"
-                        type="text" 
-                        value={this.state.completed}
-                        onChange={(e) => this.handleInputChange(e)}>
-
+                        defaultValue={this.state.completed}                      
+                        onChange={this.handleChange}>
+                        <option value="Complete=">Complete</option >
+                        <option value="Incomplete">Incomplete</option >
                         </select>
-
                 </label>
                 <br />
                 <input
@@ -84,3 +85,5 @@ export default class AddPost extends React.Component {
         );
     }
 }
+
+
